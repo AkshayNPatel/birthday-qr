@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Birthday Message</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark">
+  <main class="page">
+    <header class="top-bar">
+      <div class="top-left">
+        <div class="avatar" id="avatarInitial">😊</div>
+        <div>
+          <div class="label">Personal birthday page</div>
+          <div class="name" id="greetingName">For someone very special</div>
+        </div>
+      </div>
+      <span class="tag-soft">Best on phone &amp; laptop</span>
+    </header>
+
+    <section class="hero">
+      <h1 class="title">
+        Happy Birthday, <span id="headlineName">you beautiful soul</span> ✨
+      </h1>
+      <p class="text">
+        Scroll slowly and read this like a message from a quiet corner
+        of the universe that is cheering for you.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2 class="subtitle">A little confession 💌</h2>
+
+        <p class="text">
+          I don’t know the exact moment when you went from “someone I know”
+          to the person who quietly lives in my mind, but my days feel softer
+          whenever you appear in them.
+        </p>
+        <p class="text">
+          On your birthday, I just want you to have a day that feels as warm,
+          kind, and unexpectedly magical as you are. The way you smile, the
+          way you speak, the way you simply exist – it all stays with me much
+          longer than you think.
+        </p>
+        <p class="text">
+          I don’t know where life will take us, but I do know this: having you
+          in my world, even from a little distance, already feels like a gift.
+          I hope this small page makes you smile, the way you so often make
+          me smile.
+        </p>
+
+        <p class="text small">
+          With a very real crush and a lot of respect,  
+          <br />
+          <strong>From someone who is secretly wishing for more moments with you.</strong>
+        </p>
+      </article>
+
+      <aside class="gallery">
+        <!-- Replace these image URLs with your own birthday images -->
+        <div class="img-box">
+          <img
+            src="https://images.pexels.com/photos/2072169/pexels-photo-2072169.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Lights"
+          />
+          <span class="img-tag">A wish in every light</span>
+        </div>
+        <div class="img-box">
+          <img
+            src="https://images.pexels.com/photos/1769013/pexels-photo-1769013.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Cake"
+          />
+          <span class="img-tag">One candle for every dream</span>
+        </div>
+        <div class="img-box">
+          <img
+            src="https://images.pexels.com/photos/2253842/pexels-photo-2253842.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Confetti"
+          />
+          <span class="img-tag">Let joy spill over</span>
+        </div>
+        <div class="img-box">
+          <img
+            src="https://images.pexels.com/photos/1303081/pexels-photo-1303081.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Gift"
+          />
+          <span class="img-tag">You are the real gift</span>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div class="text small">
+        If you ever need a small reminder that someone cares about you,
+        you can come back to this page anytime.
+      </div>
+      <a href="lock.html" class="btn-outline">
+        ← Back to unlock page
+      </a>
+    </footer>
+  </main>
+
+  <script>
+    // Read ?name= from URL and personalize text
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+
+    if (name) {
+      const clean = name.trim();
+      const firstLetter = clean.charAt(0).toUpperCase();
+
+      document.getElementById("avatarInitial").textContent = firstLetter;
+      document.getElementById("greetingName").textContent = "For " + clean;
+      document.getElementById("headlineName").textContent = clean;
+    }
+  </script>
+</body>
+</html>
