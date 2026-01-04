@@ -1,36 +1,58 @@
-<div id="lockScreen" style="text-align:center; margin-bottom:1.5rem;">
-  <p style="margin-bottom:0.5rem; font-size:0.9rem;">
-    This little surprise is just for you.  
-    Please type your first name to unlock your birthday message. 🎂
-  </p>
-  <input
-    type="text"
-    id="nameInput"
-    placeholder="Your first name"
-    style="padding:0.5rem 0.8rem; border-radius:999px; border:1px solid #9ca3af; outline:none; max-width:220px; width:100%; margin-bottom:0.6rem;"
-  />
-  <br />
-  <button
-    onclick="unlockMessage()"
-    style="padding:0.5rem 1.2rem; border-radius:999px; border:none; background:#ff5f9a; color:#111827; cursor:pointer;"
-  >
-    Unlock 🎁
-  </button>
-  <p id="errorMsg" style="color:#f97373; font-size:0.8rem; margin-top:0.3rem; display:none;">
-    Hmm, that didn’t match. Try the name I call you. 🙂
-  </p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Surprise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gradient">
+  <main class="center-wrapper">
+    <section class="card">
+      <h1 class="title">A small birthday surprise 🎈</h1>
+      <p class="text">
+        This page is just for you. Please type your first name to unlock
+        your birthday message.
+      </p>
 
-<script>
-  function unlockMessage() {
-    const input = document.getElementById("nameInput").value.trim();
-    const correctName = "Priya"; // change to her exact first name, same spelling
+      <input
+        type="text"
+        id="nameInput"
+        class="input"
+        placeholder="Your first name"
+        autocomplete="off"
+      />
 
-    if (input.toLowerCase() === correctName.toLowerCase()) {
-      // go to the message page with name
-      window.location.href = "message.html?name=" + encodeURIComponent(correctName);
-    } else {
-      document.getElementById("errorMsg").style.display = "block";
+      <button class="btn-primary full" onclick="unlockMessage()">
+        Unlock 🎁
+      </button>
+
+      <p id="errorMsg" class="error hidden">
+        That didn’t match. Try the name you just told me. 🙂
+      </p>
+
+      <p class="hint">
+        Tip: Use your real first name, same spelling.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Change this to her real name (exact spelling)
+    const correctName = "Priya"; // example
+
+    function unlockMessage() {
+      const input = document.getElementById("nameInput").value.trim();
+      const error = document.getElementById("errorMsg");
+
+      if (input.toLowerCase() === correctName.toLowerCase()) {
+        // redirect to message page with name in URL
+        const url = "message.html?name=" + encodeURIComponent(correctName);
+        window.location.href = url;
+      } else {
+        error.classList.remove("hidden");
+      }
     }
-  }
-</script>
+  </script>
+</body>
+</html>
